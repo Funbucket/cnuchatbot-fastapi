@@ -68,7 +68,7 @@ def get_library_image():
             answer = insert_carousel_image(answer, url)
             answer = insert_carousel_button(answer, "자세히", url)
 
-    answer = insert_multiple_reply(answer, [["열람실 좌석보기", "열람실 좌석현황"]])
+    answer = insert_multiple_reply(answer, [["열람실 좌석보기", "열람실좌석현황"]])
     return answer
 
 
