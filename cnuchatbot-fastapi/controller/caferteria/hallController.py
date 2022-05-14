@@ -76,6 +76,7 @@ def get_str_menu(foods):
             if type_count > 1:
                 ret += "\n"
                 ret += f
+                ret += "\n"
             else:
                 ret += f
                 ret += "\n"
