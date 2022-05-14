@@ -122,7 +122,7 @@ def get_library_time():
 
     answer = insert_multiple_reply(
         answer,
-        [["열람실 좌석현황", "열람실 좌석현황"], ["층별지도보기", "층별지도보기"]]
+        [["열람실 좌석현황", "열람실좌석현황"], ["층별지도보기", "층별지도보기"]]
     )
 
     return answer
