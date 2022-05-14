@@ -17,13 +17,11 @@
 
 ### 📷 Qr 코드
 
-<img alt="Qr코드" width="200" height="200" src="https://github.com/Funbucket/cnuchatbot/blob/master/image/qrcode.png"/>
+<img alt="Qr코드" width="200" height="200" src="https://github.com/Funbucket/cnuchatbot-fastapi/blob/main/assets/qrcode.png"/>
 
 <br><br>
 
 ## 📜 사용방법
-
-<img alt="사용방법" height="500" src="https://github.com/Funbucket/cnuchatbot/blob/master/image/KakaoTalk_20210301_223747528.gif"/>
 
 - <b>츠누봇 시작하기</b>
 
@@ -61,33 +59,6 @@ This project is [MIT](https://github.com/Funbucket/cnuchatbot/blob/master/LICENS
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
 
-## 프로젝트 실행하기(Windows)
+## Deprecated previous project
 
-> 가상환경 설치하기
-
-    $ python -m venv venv
-
-> 가상환경 실행하기
-
-    $ source venv/bin/activate
-
-> Django 설치하기
-
-    $ pip install django
-
-> 데이터베이스 적용하기 (manage.py 파일이 있는 곳에서 명령어 치기)
-
-    $ python manage.py makemigrations
-    $ python manage.py migrate
-
-> admin에 접속했을때 사용할 슈퍼유저 만들기
-
-    $ python manage.py createsuperuser
-
-> 프로젝트 실행해보기
-
-    $ python3 manage.py runserver
-
-> 가상환경 종료하기
-
-    $deactivate
+- https://github.com/Funbucket/CnuChatBot
