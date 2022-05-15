@@ -38,25 +38,29 @@ def get_menu(day_num, place_num):
     """
     :return: 0: 교직원아침, 1: 학생아침, 2: 교직원점심, 3: 학생점심
     """
-    url = get_hall_url(place_num)
-    req = requests.get(url)
-    req.raise_for_status()
-    soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
-    table = soup.find("table", attrs={"class": "menu-tbl"})
-    tbody = table.find("tbody")
-    trs = tbody.find_all("tr")
+    if day_num != 6:
+        url = get_hall_url(place_num)
+        req = requests.get(url)
+        req.raise_for_status()
+        soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
+        table = soup.find("table", attrs={"class": "menu-tbl"})
+        tbody = table.find("tbody")
+        trs = tbody.find_all("tr")
 
-    breakfast_faculty_raw_data = trs[0].find_all("td")
-    breakfast_student_raw_data = trs[1].find_all("td")
-    lunch_faculty_raw_data = trs[2].find_all("td")
-    lunch_student_raw_data = trs[3].find_all("td")
+        breakfast_faculty_raw_data = trs[0].find_all("td")
+        breakfast_student_raw_data = trs[1].find_all("td")
+        lunch_faculty_raw_data = trs[2].find_all("td")
+        lunch_student_raw_data = trs[3].find_all("td")
 
-    # print(lunch_faculty_raw_data[3])
-
-    breakfast_faculty = process_data(breakfast_faculty_raw_data[day_num + 2])
-    breakfast_student = process_data(breakfast_student_raw_data[day_num + 1])
-    lunch_faculty = process_data(lunch_faculty_raw_data[day_num + 2])
-    lunch_student = process_data(lunch_student_raw_data[day_num + 1])
+        breakfast_faculty = process_data(breakfast_faculty_raw_data[day_num + 2])
+        breakfast_student = process_data(breakfast_student_raw_data[day_num + 1])
+        lunch_faculty = process_data(lunch_faculty_raw_data[day_num + 2])
+        lunch_student = process_data(lunch_student_raw_data[day_num + 1])
+    else:
+        breakfast_faculty = ['운영안함']
+        breakfast_student = ['운영안함']
+        lunch_faculty = ['운영안함']
+        lunch_student = ['운영안함']
 
     return breakfast_faculty, breakfast_student, lunch_faculty, lunch_student
 
@@ -88,7 +92,7 @@ def get_str_menu(foods):
 
 
 if __name__ == "__main__":
-    utter = "화요일제2학생회관"
+    utter = "토요일제2학생회관"
     kor_day = utter[:3]  # 월요일 ...
     place = utter[3:]  # 제2학생회관 ...
-    print(get_menu(Day.decode_kor_day(kor_day), encode_place(place))[:2])
+    print(get_menu(Day.decode_kor_day(kor_day), encode_place(place)))
