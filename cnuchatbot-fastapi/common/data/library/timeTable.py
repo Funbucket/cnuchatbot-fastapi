@@ -341,7 +341,7 @@ creative_zone = {
 }
 
 reading_room = {
-    "제 1,2,3 열람실": {
+    "제1,2,3열람실": {
         "semester": {
             "weekday": {
                 "open": time(6, 00),
@@ -363,7 +363,7 @@ reading_room = {
             }
         }
     },
-    "지하 1~2층 열람실": {
+    "지하열람실": {
         "semester": {
             "weekday": {
                 "open": time(6, 00),
