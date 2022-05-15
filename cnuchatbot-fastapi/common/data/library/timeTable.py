@@ -345,21 +345,21 @@ reading_room = {
         "semester": {
             "weekday": {
                 "open": time(6, 00),
-                "close": time(0)
+                "close": time(23, 00)
             },
             "weekend": {
                 "open": time(6, 00),
-                "close": time(0)
+                "close": time(23, 00)
             }
         },
         "vacation": {
             "weekday": {
                 "open": time(6, 00),
-                "close": time(0)
+                "close": time(23, 00)
             },
             "weekend": {
                 "open": time(6, 00),
-                "close": time(0)
+                "close": time(23, 00)
             }
         }
     },
@@ -367,32 +367,44 @@ reading_room = {
         "semester": {
             "weekday": {
                 "open": time(6, 00),
-                "close": time(0)
+                "close": time(23, 00)
             },
             "weekend": {
                 "open": time(6, 00),
-                "close": time(0)
+                "close": time(23, 00)
             }
         },
         "vacation": {
             "weekday": {
                 "open": time(6, 00),
-                "close": time(0)
+                "close": time(23, 00)
             },
             "weekend": {
                 "open": time(6, 00),
-                "close": time(0)
+                "close": time(23, 00)
             }
         }
     },
     "자유열람실": {
         "semester": {
-            "weekday": "24시간 운영",
-            "weekend": "24시간 운영"
+            "weekday": {
+                "open": time(6, 00),
+                "close": time(23, 00)
+            },
+            "weekend": {
+                "open": time(6, 00),
+                "close": time(23, 00)
+            }
         },
         "vacation": {
-            "weekday": "24시간 운영",
-            "weekend": "24시간 운영"
+            "weekday": {
+                "open": time(6, 00),
+                "close": time(23, 00)
+            },
+            "weekend": {
+                "open": time(6, 00),
+                "close": time(23, 00)
+            }
         }
     },
     # "제1열람실": {
