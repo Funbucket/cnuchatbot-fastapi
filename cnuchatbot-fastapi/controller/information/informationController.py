@@ -8,6 +8,17 @@ from common.kakaoJsonFormat import *
 GLOBAL_BASE_URL = "http://cnuint.cnu.ac.kr/cnuint/notice/"
 GLOBAL_EVENT_URL = GLOBAL_BASE_URL +  "event.do"
 GLOBAL_RECRUIT_URL = GLOBAL_BASE_URL +  "recruit.do"
+infoList = ["국제교류본부 알림","파견학생 모집"]
+
+# 각종정보 홈 리플라이만 반환
+def get_information_list():
+    answer = ""
+    answer = insert_text("보고싶은 정보를 클릭해주세요.")
+    for label in infoList:
+        reply = make_reply(label,label)
+        answer = insert_replies(answer,reply)
+    return answer
+
 
 # data parsing and make template
 def make_global_response(list,title,baseUrl):

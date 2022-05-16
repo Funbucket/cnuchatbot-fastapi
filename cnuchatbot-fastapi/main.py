@@ -84,6 +84,11 @@ async def get_hall_menu(req: KakaoRequest):
     return JSONResponse(json_info)
 
 # information
+@app.post("/information")
+def get_global_event():
+    json_info = Info.get_information_list()
+    return JSONResponse(json_info)
+
 @app.post("/information/global/event")
 def get_global_event():
     json_info = Info.get_global_event()
