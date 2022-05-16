@@ -24,13 +24,13 @@ def get_information_list():
 def make_global_response(list,title,baseUrl):
     row = list[0].find('a')
     href = itemgetter('href')(row)
-    answer = list_card(title, row.get_text(strip=True), "자세히 보기", baseUrl + href)
+    answer = list_card(title, row.get_text(strip=True), "자세히", baseUrl + href)
 
     for i in range(1, 5):
         row = list[i].find("a")
         href = itemgetter('href')(row)
 
-        a = make_item(row.get_text(strip=True), "자세히 보기" , baseUrl + href)
+        a = make_item(row.get_text(strip=True), "자세히" , baseUrl + href)
         answer['template']['outputs'][0]['listCard']['items'].append(a)
     return answer
 
