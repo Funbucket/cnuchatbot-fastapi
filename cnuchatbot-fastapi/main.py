@@ -8,6 +8,7 @@ from controller.shuttle import shuttleController as Shuttle
 from controller.library import libraryController as Library
 from controller.caferteria import cafeteriaController as Cafeteria
 from controller.caferteria import hallController as Hall
+from controller.information import informationController as Info
 
 
 app = FastAPI()
@@ -82,3 +83,13 @@ async def get_hall_menu(req: KakaoRequest):
     json_info = Cafeteria.get_hall_menu(Day.decode_kor_day(kor_day), Hall.encode_place(place))
     return JSONResponse(json_info)
 
+# information
+@app.post("/information/global/event")
+def get_global_event():
+    json_info = Info.get_global_event()
+    return JSONResponse(json_info)
+
+@app.post('/information/global/recruit')
+def get_global_recruit():
+    json_info = Info.get_global_recruit()
+    return JSONResponse(json_info)
