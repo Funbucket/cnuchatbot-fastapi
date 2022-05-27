@@ -83,7 +83,7 @@ def get_str_time(type):
         if is_vacation():  # 방학중
             for w in type[t]["vacation"]:
                 week = "주말" if w == "weekend" else "평일"
-                if type[t]["vacation"][w] == "24시간 운영":
+                if type[t]["vacation"][w] == "24시간운영":
                     ret += f"{week}: 24시간운영"
                 elif type[t]["vacation"][w] == "미운영":
                     ret += f"{week}: 미운영"
@@ -94,7 +94,7 @@ def get_str_time(type):
         else:  # 학기중
             for w in type[t]["semester"]:
                 week = "주말" if w == "weekend" else "평일"
-                if type[t]["semester"][w] == "24시간 운영":
+                if type[t]["semester"][w] == "24시간운영":
                     ret += f"{week}: 24시간운영"
                 elif type[t]["semester"][w] == "미운영":
                     ret += f"{week}: 미운영"

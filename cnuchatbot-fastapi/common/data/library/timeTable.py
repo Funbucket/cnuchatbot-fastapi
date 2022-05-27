@@ -345,11 +345,11 @@ reading_room = {
         "semester": {
             "weekday": {
                 "open": time(6, 00),
-                "close": time(23, 00)
+                "close": time(00, 00)
             },
             "weekend": {
                 "open": time(6, 00),
-                "close": time(23, 00)
+                "close": time(00, 00)
             }
         },
         "vacation": {
@@ -367,11 +367,11 @@ reading_room = {
         "semester": {
             "weekday": {
                 "open": time(6, 00),
-                "close": time(23, 00)
+                "close": time(00, 00)
             },
             "weekend": {
                 "open": time(6, 00),
-                "close": time(23, 00)
+                "close": time(00, 00)
             }
         },
         "vacation": {
@@ -387,14 +387,8 @@ reading_room = {
     },
     "자유열람실": {
         "semester": {
-            "weekday": {
-                "open": time(6, 00),
-                "close": time(23, 00)
-            },
-            "weekend": {
-                "open": time(6, 00),
-                "close": time(23, 00)
-            }
+            "weekday": "24시간운영",
+            "weekend": "24시간운영"
         },
         "vacation": {
             "weekday": {
