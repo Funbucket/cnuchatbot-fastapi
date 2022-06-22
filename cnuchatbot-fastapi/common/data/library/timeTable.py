@@ -1,28 +1,28 @@
 from datetime import time
 
 reference_room = {
-    "신문열람실": {
-        "semester": {
-            "weekday": {
-                "open": time(6, 00),
-                "close": time(0)
-            },
-            "weekend": {
-                "open": time(6, 00),
-                "close": time(0)
-            }
-        },
-        "vacation": {
-            "weekday": {
-                "open": time(6, 00),
-                "close": time(0)
-            },
-            "weekend": {
-                "open": time(6, 00),
-                "close": time(0)
-            }
-        }
-    },
+    # "신문열람실": {
+    #     "semester": {
+    #         "weekday": {
+    #             "open": time(6, 00),
+    #             "close": time(0)
+    #         },
+    #         "weekend": {
+    #             "open": time(6, 00),
+    #             "close": time(0)
+    #         }
+    #     },
+    #     "vacation": {
+    #         "weekday": {
+    #             "open": time(6, 00),
+    #             "close": time(0)
+    #         },
+    #         "weekend": {
+    #             "open": time(6, 00),
+    #             "close": time(0)
+    #         }
+    #     }
+    # },
     # "연속간행물실": {
     #     "semester": {
     #         "weekday": {
@@ -55,22 +55,22 @@ reference_room = {
     #         "weekend": "미운영"
     #     }
     # },
-    # "학위논문실": {
-    #     "semester": {
-    #         "weekday": {
-    #             "open": time(9, 00),
-    #             "close": time(18, 00)
-    #         },
-    #         "weekend": "미운영"
-    #     },
-    #     "vacation": {
-    #         "weekday": {
-    #             "open": time(9, 00),
-    #             "close": time(18, 00)
-    #         },
-    #         "weekend": "미운영"
-    #     }
-    # },
+    "학위논문실": {
+        "semester": {
+            "weekday": {
+                "open": time(9, 00),
+                "close": time(18, 00)
+            },
+            "weekend": "미운영"
+        },
+        "vacation": {
+            "weekday": {
+                "open": time(9, 00),
+                "close": time(18, 00)
+            },
+            "weekend": "미운영"
+        }
+    },
     # "고서실": {
     #     "semester": {
     #         "weekday": {
@@ -103,7 +103,7 @@ reference_room = {
             "weekend": "미운영"
         }
     },
-    "제1자료실": {
+    "제1,2,3자료실": {
         "semester": {
             "weekday": {
                 "open": time(9, 00),
@@ -341,7 +341,7 @@ creative_zone = {
 }
 
 reading_room = {
-    "제1,2,3열람실": {
+    "열람실": {
         "semester": {
             "weekday": {
                 "open": time(6, 00),
@@ -363,29 +363,29 @@ reading_room = {
             }
         }
     },
-    "지하열람실": {
-        "semester": {
-            "weekday": {
-                "open": time(6, 00),
-                "close": time(00, 00)
-            },
-            "weekend": {
-                "open": time(6, 00),
-                "close": time(00, 00)
-            }
-        },
-        "vacation": {
-            "weekday": {
-                "open": time(6, 00),
-                "close": time(23, 00)
-            },
-            "weekend": {
-                "open": time(6, 00),
-                "close": time(23, 00)
-            }
-        }
-    },
-    "자유열람실": {
+    # "지하열람실": {
+    #     "semester": {
+    #         "weekday": {
+    #             "open": time(6, 00),
+    #             "close": time(00, 00)
+    #         },
+    #         "weekend": {
+    #             "open": time(6, 00),
+    #             "close": time(00, 00)
+    #         }
+    #     },
+    #     "vacation": {
+    #         "weekday": {
+    #             "open": time(6, 00),
+    #             "close": time(23, 00)
+    #         },
+    #         "weekend": {
+    #             "open": time(6, 00),
+    #             "close": time(23, 00)
+    #         }
+    #     }
+    # },
+    "[1층]자유열람실": {
         "semester": {
             "weekday": "24시간운영",
             "weekend": "24시간운영"

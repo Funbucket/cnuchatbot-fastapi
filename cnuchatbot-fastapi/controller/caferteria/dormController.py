@@ -1,5 +1,4 @@
 import requests
-from common.day import Day
 from bs4 import BeautifulSoup
 
 DORM_URL = "https://dorm.cnu.ac.kr/html/kr/sub03/sub03_0304.html"
@@ -80,9 +79,5 @@ def get_str_menu(foods):
         ret += f
         ret += "\n"
     return ret
-
-
-if __name__ == "__main__":
-    print(get_menu(Day.MONDAY.value)[0])
 
 

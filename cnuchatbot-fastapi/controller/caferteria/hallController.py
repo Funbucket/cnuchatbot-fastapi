@@ -2,8 +2,7 @@ from datetime import date
 
 import requests
 from bs4 import BeautifulSoup
-
-from common.day import Day
+from common.day import *
 
 
 def encode_place(place):
@@ -95,4 +94,4 @@ if __name__ == "__main__":
     utter = "토요일제2학생회관"
     kor_day = utter[:3]  # 월요일 ...
     place = utter[3:]  # 제2학생회관 ...
-    print(get_menu(Day.decode_kor_day(kor_day), encode_place(place)))
+    print(get_menu(decode_kor_day(kor_day), encode_place(place)))

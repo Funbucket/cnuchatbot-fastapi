@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
 from common.model import KakaoRequest
-from common.day import Day
+from common.day import Day, decode_kor_day
 
 from controller.shuttle import shuttleController as Shuttle
 from controller.library import libraryController as Library
@@ -55,7 +55,7 @@ async def get_cafeteria_time():
 
 @app.post("/cafeteria/dorm/home")
 async def get_dorm_options():  # 오늘 식단과 선택지(날짜)
-    json_info = Cafeteria.get_dorm_menu(Day.TODAY.value)
+    json_info = Cafeteria.get_dorm_menu(Day["TODAY"])
     return JSONResponse(json_info)
 
 
@@ -63,14 +63,14 @@ async def get_dorm_options():  # 오늘 식단과 선택지(날짜)
 async def get_dorm_menu(req: KakaoRequest):
     utter = req.userRequest.utterance  # 월요일기숙사, 화요일기숙사 ...
     kor_day = utter[:3]  # 월요일 ...
-    json_info = Cafeteria.get_dorm_menu(Day.decode_kor_day(kor_day))
+    json_info = Cafeteria.get_dorm_menu(decode_kor_day(kor_day))
     return JSONResponse(json_info)
 
 
 @app.post("/cafeteria/hall/home")
 async def get_hall_options(req: KakaoRequest):  # 특정 회관에 맞는 선택 옵션(날짜)들과 오늘 식단
     utter = req.userRequest.utterance  # 제2학생회관, 제3학생회관, 제4학생회관, 생활과학대학
-    json_info = Cafeteria.get_hall_menu(Day.TODAY.value, Hall.encode_place(utter))
+    json_info = Cafeteria.get_hall_menu(Day["TODAY"], Hall.encode_place(utter))
     return JSONResponse(json_info)
 
 
@@ -79,6 +79,6 @@ async def get_hall_menu(req: KakaoRequest):
     utter = req.userRequest.utterance  # 월요일제2학생회관 ... 월요일제3학생회관 ... 월요일생활과학대학
     kor_day = utter[:3]  # 월요일 ...
     place = utter[3:]  # 제2학생회관 ...
-    json_info = Cafeteria.get_hall_menu(Day.decode_kor_day(kor_day), Hall.encode_place(place))
+    json_info = Cafeteria.get_hall_menu(decode_kor_day(kor_day), Hall.encode_place(place))
     return JSONResponse(json_info)
 

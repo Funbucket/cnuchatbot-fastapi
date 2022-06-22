@@ -3,6 +3,7 @@ from datetime import datetime, date, time, timedelta
 from typing import NamedTuple
 from common.kakaoJsonFormat import *
 from common.holiday import is_holiday
+from common.vacation import is_vacation
 
 AVG_TIME = 20
 CURRENT_TIME = datetime.now()
@@ -178,7 +179,11 @@ def get_str_info(adj_time, cur_time):
                 info += "\n" + get_str_time(adj_time.times_[j]) + "(" + str(get_time_diff(adj_time.times_[j], cur_time)) + "분전)"
         return info
 
-    return get_info(adj_time.prev_, adj_time.next_)
+    if is_vacation():
+        ret = "방학 중 셔틀 운행 하지 않습니다."
+    else:
+        ret = get_info(adj_time.prev_, adj_time.next_)
+    return ret
 
 
 def get_time():
@@ -190,7 +195,6 @@ def get_time():
     """
     global CURRENT_TIME
     CURRENT_TIME = datetime.now()
-    # CURRENT_TIME = get_datetime(time(14, 46))  # test code
 
     # a노선
     a = find_adjacent_times("A", CURRENT_TIME)
@@ -224,3 +228,7 @@ def get_time():
         [["A노선표", "A노선표"], ["B노선표", "B노선표"], ["C노선표", "C노선표"]]
     )
     return answer
+
+
+if __name__ == "__main__":
+    print(get_time())
