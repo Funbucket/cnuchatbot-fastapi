@@ -206,27 +206,34 @@ def get_time():
     b_str_info = get_str_info(b, CURRENT_TIME)
     answer = insert_carousel_item(answer, b.line_name_ + "노선(순환)", b_str_info)
 
-    # c노선 보운행
-    cb_str = ""
-    for t in LINE_TIME["CB"].values():
-        cb_str += get_str_time(t)
-        cb_str += "\n"
+    # c노선
+    if is_vacation():
+        ret = "방학 중 셔틀 운행 하지 않습니다."
+        answer = insert_carousel_item(answer, "C노선(보운행)", ret)
+        answer = insert_carousel_item(answer, "C노선(대덕행)", ret)
+    else:
+        # c노선 보운행
+        cb_str = ""
+        for t in LINE_TIME["CB"].values():
+            cb_str += get_str_time(t)
+            cb_str += "\n"
 
-    answer = insert_carousel_item(answer, "C노선(보운행)", cb_str)
+        answer = insert_carousel_item(answer, "C노선(보운행)", cb_str)
 
-    # c노선 대덕행
-    cd_str = ""
-    for t in LINE_TIME["CD"].values():
-        cd_str += get_str_time(t)
-        cd_str += "\n"
+        # c노선 대덕행
+        cd_str = ""
+        for t in LINE_TIME["CD"].values():
+            cd_str += get_str_time(t)
+            cd_str += "\n"
 
-    answer = insert_carousel_item(answer, "C노선(대덕행)", cd_str)
+        answer = insert_carousel_item(answer, "C노선(대덕행)", cd_str)
 
-    # 노선표 replies 추가
-    answer = insert_multiple_reply(
-        answer,
-        [["A노선표", "A노선표"], ["B노선표", "B노선표"], ["C노선표", "C노선표"]]
-    )
+        # 노선표 replies 추가
+        answer = insert_multiple_reply(
+            answer,
+            [["A노선표", "A노선표"], ["B노선표", "B노선표"], ["C노선표", "C노선표"]]
+        )
+
     return answer
 
 

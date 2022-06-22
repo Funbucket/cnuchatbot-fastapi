@@ -91,6 +91,7 @@ def get_str_time(type):
                     open_time = type[t]["vacation"][w]["open"].strftime("%H:%M")[1:]
                     close_time = type[t]["vacation"][w]["close"].strftime("%H:%M")
                     ret += f"{week}: {open_time}~{close_time}"
+                ret += "\n"
         else:  # 학기중
             for w in type[t]["semester"]:
                 week = "주말" if w == "weekend" else "평일"
