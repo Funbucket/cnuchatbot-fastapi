@@ -11,7 +11,6 @@ Day = {
     "TODAY": datetime.today().weekday()
 }
 
-
 def decode_kor_day(kor_day):
     if kor_day == "월요일":
         return Day["MONDAY"]
@@ -27,3 +26,7 @@ def decode_kor_day(kor_day):
         return Day["SATURDAY"]
     elif kor_day == "일요일":
         return Day["SUNDAY"]
+
+# today 자정 넘어가면 초기화되자않는 오류 해결책
+def get_today():
+    return datetime.today().weekday()

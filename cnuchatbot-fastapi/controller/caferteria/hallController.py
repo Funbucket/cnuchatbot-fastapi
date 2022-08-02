@@ -89,7 +89,7 @@ def get_str_menu(foods):
 
     return ret
 
-
+# test code
 if __name__ == "__main__":
     utter = "토요일제2학생회관"
     kor_day = utter[:3]  # 월요일 ...
