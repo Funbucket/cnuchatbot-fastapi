@@ -34,10 +34,9 @@ def process_data(menu_raw_data):
 def remove_english_menu(menu):
     main_a_count = 0  # 메인A 반복 확인
     for i, m in enumerate(menu):
-        if "메인A" in m:
+        if "메인A" in m or "MainA" in m:
             main_a_count += 1
-            if main_a_count > 1:
-                # 이후 원소 삭제 후 배열 반환
+            if main_a_count == 2:
                 del menu[i-1:-1]
                 return menu
 
@@ -79,5 +78,4 @@ def get_str_menu(foods):
         ret += f
         ret += "\n"
     return ret
-
 
