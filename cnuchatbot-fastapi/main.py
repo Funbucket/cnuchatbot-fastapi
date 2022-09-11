@@ -19,6 +19,11 @@ async def get_shuttle_time():
     json_info = Shuttle.get_time()
     return JSONResponse(json_info)
 
+@app.post("/app/shuttle/home")  # 도착 시간 정보
+async def get_shuttle_time():
+    json_info = Shuttle.get_time(True)
+    return JSONResponse(json_info)
+
 
 @app.post("/shuttle/image")  # 노선 이미지
 async def get_shuttle_image(req: KakaoRequest):

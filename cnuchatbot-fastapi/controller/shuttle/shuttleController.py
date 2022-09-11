@@ -186,7 +186,7 @@ def get_str_info(adj_time, cur_time):
     return ret
 
 
-def get_time():
+def get_time(isApp=False):
     """
     get_time
     get_str_info를 통해 얻은 각 노선의 정보
@@ -205,7 +205,7 @@ def get_time():
     b = find_adjacent_times("B", CURRENT_TIME)
     b_str_info = get_str_info(b, CURRENT_TIME)
     answer = insert_carousel_item(answer, b.line_name_ + "노선(순환)", b_str_info)
-
+    
     # c노선
     if is_vacation():
         ret = "방학 중 셔틀 운행 하지 않습니다."
@@ -225,7 +225,9 @@ def get_time():
         for t in LINE_TIME["CD"].values():
             cd_str += get_str_time(t)
             cd_str += "\n"
-
+        
+        if(isApp):
+            return (a_str_info,b_str_info,cb_str,cd_str);
         answer = insert_carousel_item(answer, "C노선(대덕행)", cd_str)
 
         # 노선표 replies 추가
