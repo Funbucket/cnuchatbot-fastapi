@@ -129,6 +129,14 @@ def get_library_time():
 
     return answer
 
+def get_app_library_time():
+    library_time_info = {}
+    library_time_info["자료실"] = get_str_time(reference_room)
+    library_time_info["열람실"] = get_str_time(reading_room)
+    library_time_info["크리에이티브존"] = get_str_time(creative_zone)
+    return library_time_info
+
+
 
 if __name__ == "__main__":
     print(get_library_time())

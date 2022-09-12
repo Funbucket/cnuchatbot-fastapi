@@ -43,6 +43,11 @@ async def get_library_time():
     json_info = Library.get_library_time()
     return JSONResponse(json_info)
 
+@app.get("/app/library/home")  # 앱 도서관 시간 정보
+async def get_library_time():
+    json_info = Library.get_app_library_time()
+    return JSONResponse(json_info)
+
 
 @app.post("/library/seats")  # 열람실 좌석 현황
 async def get_library_seats():
