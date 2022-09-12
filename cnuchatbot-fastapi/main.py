@@ -77,6 +77,11 @@ async def get_cafeteria_time():
     json_info = Cafeteria.get_cafeteria_time()
     return JSONResponse(json_info)
 
+@app.get("/app/cafeteria/home")
+async def get_cafeteria_time():
+    json_info = Cafeteria.get_app_cafeteria_time()
+    return JSONResponse(json_info)
+
 
 @app.post("/cafeteria/dorm/home")
 async def get_dorm_options():  # 오늘 식단과 선택지(날짜)

@@ -71,6 +71,18 @@ def get_cafeteria_time():
 
     return answer
 
+def get_app_cafeteria_time():
+    cafeteria_time_info = {}
+    cafeteria_time_info["기숙사"] = get_str_time(dormitory)
+    cafeteria_time_info["제1학생회관"] = "라면&간식&양식\n10:00~14:00\n17:30~19:00\n스낵&한식&일식&중식\n11:00~14:00\n*주말,공휴일 운영안함"
+    cafeteria_time_info["제2학생회관"] = get_str_time(student_2)
+    cafeteria_time_info["제3학생회관"] = get_str_time(student_3)
+    cafeteria_time_info["제4학생회관"] = get_str_time(student_4)
+    cafeteria_time_info["생활과학대학"] = get_str_time(domestic_science)
+
+    return cafeteria_time_info
+
+
 
 def get_dorm_menu(day_num):
     menu = Dorm.get_menu(day_num)
