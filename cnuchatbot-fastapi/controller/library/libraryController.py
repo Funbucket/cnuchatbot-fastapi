@@ -52,6 +52,7 @@ def get_library_seats():
     return answer
 
 
+
 def get_library_image():
     for i, floor in enumerate(FLOORS):
         if floor == "별관1층":

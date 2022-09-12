@@ -85,6 +85,9 @@ def get_image(line):
     )
     return answer
 
+def get_app_image():
+    return [IMAGE_URL['A노선표'],IMAGE_URL['B노선표'],IMAGE_URL['C노선표'],IMAGE_URL['C노선표']]
+
 
 def find_adjacent_times(line, cur_time):
     """

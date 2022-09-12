@@ -19,7 +19,7 @@ async def get_shuttle_time():
     json_info = Shuttle.get_time()
     return JSONResponse(json_info)
 
-@app.post("/app/shuttle/home")  # 도착 시간 정보
+@app.get("/app/shuttle/home")  # 도착 시간 정보
 async def get_shuttle_time():
     json_info = Shuttle.get_time(True)
     return JSONResponse(json_info)
@@ -29,6 +29,11 @@ async def get_shuttle_time():
 async def get_shuttle_image(req: KakaoRequest):
     utter = req.userRequest.utterance  # A노선표 or B노선표 or C노선표
     json_info = Shuttle.get_image(utter)
+    return JSONResponse(json_info)
+
+@app.get("/app/shuttle/image")  # 노선 이미지 앱
+async def get_shuttle_image():
+    json_info = Shuttle.get_app_image()
     return JSONResponse(json_info)
 
 
@@ -42,6 +47,11 @@ async def get_library_time():
 @app.post("/library/seats")  # 열람실 좌석 현황
 async def get_library_seats():
     json_info = Library.get_library_seats()
+    return JSONResponse(json_info)
+
+@app.get("/app/library/seats")  # 앱 열람실 좌석 현황
+async def get_library_seats():
+    json_info = Library.library_json_format_total()
     return JSONResponse(json_info)
 
 
