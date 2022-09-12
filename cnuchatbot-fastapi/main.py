@@ -65,6 +65,11 @@ async def get_library_image():
     json_info = Library.get_library_image()
     return JSONResponse(json_info)
 
+@app.get("/app/library/image")  # 앱 도서관 층별 이미지
+async def get_library_image():
+    json_info = Library.get_app_library_image()
+    return JSONResponse(json_info)
+
 
 # cafeteria
 @app.post("/cafeteria/home")

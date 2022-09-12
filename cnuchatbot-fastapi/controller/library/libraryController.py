@@ -72,6 +72,16 @@ def get_library_image():
     answer = insert_multiple_reply(answer, [["열람실 좌석보기", "열람실좌석현황"]])
     return answer
 
+def get_app_library_image():
+    answer = []
+    for _, floor in enumerate(FLOORS):
+        if floor == "별관1층":
+            n = int(floor[2]) - 1  # library.cnu.ac.kr/image/ko/local/guide/floor0.png
+        else:
+            n = floor[:-1]
+        url = f"{LIBRARY_IMAGE_URL}{n}.png"
+        answer.append(url)
+    return answer
 
 def get_str_time(type):
     """
