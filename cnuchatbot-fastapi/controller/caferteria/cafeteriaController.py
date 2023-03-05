@@ -3,7 +3,7 @@ from common.kakaoJsonFormat import *
 from controller.caferteria import dormController as Dorm
 from controller.caferteria import hallController as Hall
 
-STUDENT_1_IMAGE_URL = "https://cnuit.cnu.ac.kr/patis/system/ReportImageViewController.do?platformType=exbuilder&method=view&f0=cooperation&f1=consumer&f2=ocl02&f3=20220509&f4=C87EB9495CF142EFB831F158D3B64390.jpg"
+STUDENT_1_IMAGE_URL = "https://i.postimg.cc/Qx3mwSs5/2023-03-05-8-58-54.png"
 
 
 def get_str_type(t):
