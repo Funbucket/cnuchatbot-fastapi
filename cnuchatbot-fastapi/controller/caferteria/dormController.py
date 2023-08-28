@@ -1,4 +1,5 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 
 DORM_URL = "https://dorm.cnu.ac.kr/html/kr/sub03/sub03_0304.html"
@@ -10,7 +11,7 @@ def get_menu(day_num):
     """
     req = requests.get(DORM_URL)
     req.raise_for_status()
-    soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
+    soup = BeautifulSoup(req.content.decode("utf8", "replace"), "html.parser")
     trs = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
     tds = trs[day_num].find_all("td")
     breakfast_raw_data, lunch_raw_data, dinner_raw_data = tds[1], tds[2], tds[3]
@@ -24,6 +25,7 @@ def get_menu(day_num):
 
 def process_data(menu_raw_data):
     menu = [i.strip() for i in menu_raw_data.find_all(text=True)]  # 글자로만 배열 생성
+    print(menu)
     menu = remove_english_menu(menu)  # 영어 메뉴 삭제
     menu = divide_by_type(menu)  # 메뉴 타입별 분리
     menu = list(filter(lambda x: len(x) > 0, menu))  # 없는 메뉴 자르기
@@ -32,13 +34,11 @@ def process_data(menu_raw_data):
 
 
 def remove_english_menu(menu):
-    main_a_count = 0  # 메인A 반복 확인
+    reg = re.compile(r"[a-zA-Z]")
     for i, m in enumerate(menu):
-        if "메인A" in m or "MainA" in m:
-            main_a_count += 1
-            if main_a_count == 2:
-                del menu[i-1:-1]
-                return menu
+        if reg.match(m):
+            del menu[i - 1 : -1]
+            return menu
 
 
 def divide_by_type(menu):  # 메뉴 타입 별로 배열 분리: 최대 타입 개수 3개
@@ -79,3 +79,6 @@ def get_str_menu(foods):
         ret += "\n"
     return ret
 
+
+if __name__ == "__main__":
+    print(get_menu(4))
