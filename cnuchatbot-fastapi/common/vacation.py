@@ -1,7 +1,7 @@
 from datetime import date
 
-vacation_start = date(2022, 12, 21)
-vacation_end = date(2023, 3, 1)
+vacation_start = date(2023, 6, 22)
+vacation_end = date(2023, 9, 1)
 
 
 def is_vacation():
